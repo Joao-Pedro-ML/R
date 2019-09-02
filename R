@@ -1,0 +1,41 @@
+
+(idade=c(19, 17, 25, 65, 20, 12))
+
+mean(idade)     #media das idades
+var(idade)      #variancia das idades
+sd(idade)       #desvio padrao
+
+
+idade[c(1, 3,4)]    #mostrar os elementos 1,3 e 4
+
+
+dados1=data.frame(idade=c(1,3,4), sex=c('m', 'f', 'm'))
+dados1
+
+dados1$sex     #acessar os dados da variavel sex
+
+
+library(rattle)
+
+data(wine,package = 'rattle')
+
+
+head(wine)
+names(wine)
+table(wine$Type)
+wine2=wine[,-1] #cria base de dados nova sem a coluna 1
+
+wine2=scale(wine2)
+head(wine2)
+install.packages('factoextra')
+
+library(factoextra)
+fviz_nbclust(wine2, kmeans)
+
+modelo=kmeans(wine2, 3)
+modelo$cluster
+
+wine&type
+table(modelo$cluster, wine$type)
+
+fviz_cluster(modelo, data = wine2)
