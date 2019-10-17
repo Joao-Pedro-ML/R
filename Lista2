@@ -1,0 +1,66 @@
+
+###################
+##  Segunda lista R    ## 
+###################
+
+## João Pedro Moreto Lourenção                      2150980
+
+#1)  Sabe-se que 60% dos camundongos inoculados com soro estão 
+#    protegidos contra determinada doença. Se cinco camundongos 
+#    são inoculados, determine a probabilidade de que:
+
+#a) Nenhum contraia a doença.
+dbinom(5,5,0.6)
+#b) Menos de dois contraiam a doença.
+pbinom(1,5,0.4)
+#c) Mais de três contraiam a doença.
+resp = 1 - pbinom(3,5,0.4)
+#2) Considere X o número de falhas de equipamentos. Se a prob. de
+#    um equipamento queimar eh p=0.2, qual o valor de x, tal que 
+#    P(X=x) seja a maior probabilidade possivel, considerando n=50? Dica,
+#    faça um grafico de dispersao, plot(x,y),em que x=0:50 e y=dbinom(x,n,p))
+
+x = 0:50
+y=dbinom(x, 50, 0.2)
+plot(x,y)
+abline(v=10)
+
+# 3) Numa placa de microscópio, dividida em quadrantes de 1mm^2, 
+#    encontra-se em média 5 colônias por mm2. Considere que o número de 
+#    colônias segue uma distribuição de Poisson. Determine:
+#a) Qual a probabilidade de se encontrar pelo menos 2 colônias por mm^2?
+sum(dpois(2:5,5))
+#b) Qual a probabilidade de se encontrar 8 colônias em 2 mm^2?
+dpois(8,10)
+
+#4) Seja X uma V.A. que segue uma distribuição exponencial com média 10. Calcule:
+#a) A probabilidade de X ser maior que 13?
+1-pexp(13,1/10)
+pexp(13,1/10,lower.tail = F)
+#b) A probabilidade X ser menor que 9?
+pexp(9,1/10)
+#c) A probabilidade X ser menor que 5 ou maior que 9?
+pexp(5,1/10)+pexp(9,1/10,lower.tail = F)
+#d) Qual a variância de X?
+10^2
+
+#5) A altura dos indivíduos de uma população distribui-se normalmente 
+#   com média de 1,56 m e desvio padrão de 0,09 m. Determine:
+#a) Prob. de ter altura de 1.80 m ou mais?
+pnorm(1.8,1.56,0.09,lower.tail = F)
+#b) Prob de ter menos que 1.30?
+pnorm(1.3,1.56,0.09)
+#d) Uma amostra da V.A altura de tamanho 1500 
+d=rnorm(1500,1.56,0.09)
+#e) Determine a media e o desvio padrao da amostra obtida em d)
+mean(d)
+sd(d)
+#f) Apresente o histograma da amostra
+hist(d)
+#g) Determine o valor da nova V.A. Z=(x-mean(altura))/sd(altura)
+
+#h) Apresente o histograma de Z.
+
+#i) Para altura = 1.7, qual o valor de Z?
+#j) Mostre que P(X<1.7) é igual a P(Z<y), em que y eh o valor obtido em i). 
+
