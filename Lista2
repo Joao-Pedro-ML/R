@@ -58,9 +58,10 @@ sd(d)
 #f) Apresente o histograma da amostra
 hist(d)
 #g) Determine o valor da nova V.A. Z=(x-mean(altura))/sd(altura)
-
+Z=(d-mean(d))/sd(d)
 #h) Apresente o histograma de Z.
-
+hist(Z)
 #i) Para altura = 1.7, qual o valor de Z?
+Z1=(1.7-mean(d))/sd(d)
 #j) Mostre que P(X<1.7) é igual a P(Z<y), em que y eh o valor obtido em i). 
-
+pnorm(1.7,mean(d),sd(d)) == pnorm(Z1)
